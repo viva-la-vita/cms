@@ -4,11 +4,11 @@ services:
     container_name: strapi
     build:
       context: ./strapi
-      dockerfile: ${DOCKERFILE}
+      dockerfile: Dockerfile.production
     restart: unless-stopped
+    env_file: .env.production
     environment:
-      NODE_ENV: ${NODE_ENV}
-      DATABASE_CLIENT: mysql
+      DATABASE_CLIENT: ${DATABASE_CLIENT}
       DATABASE_HOST: mysql
       DATABASE_PORT: ${DATABASE_PORT}
       DATABASE_NAME: ${DATABASE_NAME}
@@ -16,14 +16,13 @@ services:
       DATABASE_PASSWORD: ${DATABASE_PASSWORD}
       JWT_SECRET: ${JWT_SECRET}
       ADMIN_JWT_SECRET: ${ADMIN_JWT_SECRET}
+      NODE_ENV: ${NODE_ENV}
       API_TOKEN_SALT: ${API_TOKEN_SALT}
       APP_KEYS: ${APP_KEYS}
-      PORT: ${STRAPI_PORT}
+      PORT: ${PORT}
       HOST: ${HOST}
-    volumes:
-      - ${MOUNT}
     ports:
-      - ${PORT}:${STRAPI_PORT}
+      - "1337:1337"
     networks:
       - cms
     depends_on:
@@ -39,7 +38,7 @@ services:
       MYSQL_USER: ${DATABASE_USERNAME}
       MYSQL_PASSWORD: ${DATABASE_PASSWORD}
     expose:
-      - ${DATABASE_PORT}
+      - 3306
     volumes:
       - mysql:/var/lib/mysql
     networks:

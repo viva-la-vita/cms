@@ -1,8 +1,5 @@
-.DS_Store
 node_modules
-public
-.env
-exports
-*.cache
 build
+.cache
+.env*
 .strapi-updater.json
