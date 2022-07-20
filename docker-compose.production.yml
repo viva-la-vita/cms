@@ -1,0 +1,10 @@
+services:
+  strapi:
+    image: ghcr.io/viva-la-vita/api
+    restart: always
+
+  admin:
+    image: ghcr.io/viva-la-vita/cms
+    restart: always
+    ports:
+      - 3000:80

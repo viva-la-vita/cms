@@ -1,31 +1,15 @@
 version: "3"
+
 services:
   strapi:
-    container_name: strapi
-    build:
-      context: ./strapi
-      dockerfile: ${DOCKERFILE}
-    restart: unless-stopped
     environment:
-      NODE_ENV: ${NODE_ENV}
-      DATABASE_CLIENT: mysql
-      DATABASE_HOST: mysql
-      DATABASE_PORT: ${DATABASE_PORT}
-      DATABASE_NAME: ${DATABASE_NAME}
-      DATABASE_USERNAME: ${DATABASE_USERNAME}
-      DATABASE_PASSWORD: ${DATABASE_PASSWORD}
-      JWT_SECRET: ${JWT_SECRET}
-      ADMIN_JWT_SECRET: ${ADMIN_JWT_SECRET}
-      API_TOKEN_SALT: ${API_TOKEN_SALT}
       APP_KEYS: ${APP_KEYS}
-      PORT: ${STRAPI_PORT}
-      HOST: ${HOST}
-    volumes:
-      - ${MOUNT}
+      API_TOKEN_SALT: ${API_TOKEN_SALT}
+      ADMIN_JWT_SECRET: ${ADMIN_JWT_SECRET}
+      JWT_SECRET: ${JWT_SECRET}
+      DATABASE_PASSWORD: ${DATABASE_PASSWORD}
     ports:
-      - ${PORT}:${STRAPI_PORT}
-    networks:
-      - cms
+      - 3001:3001
     depends_on:
       - mysql
 
@@ -34,21 +18,14 @@ services:
     command: mysqld --default-authentication-plugin=mysql_native_password
     restart: always
     environment:
+      MYSQL_DATABASE: strapi
+      MYSQL_USER: strapi
       MYSQL_ROOT_PASSWORD: ${DATABASE_PASSWORD}
-      MYSQL_DATABASE: ${DATABASE_NAME}
-      MYSQL_USER: ${DATABASE_USERNAME}
       MYSQL_PASSWORD: ${DATABASE_PASSWORD}
     expose:
-      - ${DATABASE_PORT}
+      - 3306
     volumes:
       - mysql:/var/lib/mysql
-    networks:
-      - cms
 
 volumes:
     mysql:
-
-networks:
-  cms:
-    name: CMS
-    driver: bridge

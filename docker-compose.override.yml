@@ -1,0 +1,7 @@
+services:
+  strapi:
+    build:
+      context: .
+      target: base
+    volumes:
+      - .:/app
