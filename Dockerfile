@@ -16,11 +16,3 @@ RUN npm install --production
 COPY . .
 
 CMD ["npm", "run", "start"]
-
-FROM api AS build
-
-RUN NODE_ENV=production npm run build
-
-FROM nginx:1.23 AS cms
-
-COPY --from=build /app/build /usr/share/nginx/html

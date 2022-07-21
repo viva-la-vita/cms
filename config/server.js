@@ -1,7 +1,7 @@
 module.exports = ({ env }) => {
   let config = {
     host: '0.0.0.0',
-    port: 3001,
+    port: 3000,
     app: {
       keys: env.array('APP_KEYS'),
     },

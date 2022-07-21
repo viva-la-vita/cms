@@ -9,7 +9,7 @@ services:
       JWT_SECRET: ${JWT_SECRET}
       DATABASE_PASSWORD: ${DATABASE_PASSWORD}
     ports:
-      - 3001:3001
+      - 3000:3000
     depends_on:
       - mysql
 

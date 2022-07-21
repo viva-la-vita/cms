@@ -1,11 +1,10 @@
-name: Build
+name: Build API
 
 on:
   push:
     branches: [master]
 
 env:
-  CMS: ghcr.io/viva-la-vita/cms
   API: ghcr.io/viva-la-vita/api
 
 jobs:
@@ -32,11 +31,3 @@ jobs:
           target: api
           cache-from: type=registry,ref=${{ env.API }}:buildcache
           cache-to: type=registry,ref=${{ env.API }}:buildcache,mode=max
-      - name: Build and push CMS
-        uses: docker/build-push-action@v2
-        with:
-          push: true
-          tags: ${{ env.CMS }}
-          target: cms
-          cache-from: type=registry,ref=${{ env.CMS }}:buildcache
-          cache-to: type=registry,ref=${{ env.CMS }}:buildcache,mode=max

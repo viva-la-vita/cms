@@ -4,9 +4,3 @@ services:
     restart: always
     environment:
       NODE_ENV: production
-
-  admin:
-    image: ghcr.io/viva-la-vita/cms
-    restart: always
-    ports:
-      - 3000:80
