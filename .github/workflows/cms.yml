@@ -25,6 +25,8 @@ jobs:
         run: echo ${{ secrets.ENV_FILE }} > .env
       - name: Build CMS
         run: npm ci && NODE_ENV=production npm run build
+      - name: Add CNAME
+        run: echo "cms.viva-la-vita.org" > build/CNAME
       - name: Deploy CMS
         uses: crazy-max/ghaction-github-pages@v3
         with:
