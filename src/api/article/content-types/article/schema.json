@@ -12,23 +12,30 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "Title": {
+    "title": {
       "type": "string",
       "required": true,
       "unique": false
     },
-    "Slug": {
+    "slug": {
       "type": "string",
       "required": true,
-      "unique": true
+      "unique": false
     },
-    "Content": {
+    "content": {
       "type": "richtext"
     },
-    "Children": {
+    "children": {
       "type": "relation",
       "relation": "oneToMany",
-      "target": "api::article.article"
+      "target": "api::article.article",
+      "mappedBy": "parent"
+    },
+    "parent": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::article.article",
+      "inversedBy": "children"
     }
   }
 }
