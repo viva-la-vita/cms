@@ -4,7 +4,7 @@
   "info": {
     "singularName": "article",
     "pluralName": "articles",
-    "displayName": "Article",
+    "displayName": "文章",
     "description": ""
   },
   "options": {
@@ -12,13 +12,15 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "Title": {
-      "type": "string"
-    },
-    "Title_Chinese": {
+    "URL": {
       "type": "string",
       "required": true,
       "unique": true
+    },
+    "Title": {
+      "type": "string",
+      "required": true,
+      "unique": false
     },
     "Content": {
       "type": "richtext"

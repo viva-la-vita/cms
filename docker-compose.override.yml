@@ -1,7 +1,10 @@
 services:
   strapi:
+    image: ghcr.io/viva-la-vita/api:development
     build:
       context: .
       target: base
+    environment:
+      NODE_ENV: development
     volumes:
       - .:/app

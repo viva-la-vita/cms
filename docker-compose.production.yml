@@ -1,6 +1,0 @@
-services:
-  strapi:
-    image: ghcr.io/viva-la-vita/api
-    restart: always
-    environment:
-      NODE_ENV: production
