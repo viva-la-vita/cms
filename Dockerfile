@@ -5,7 +5,7 @@ RUN apt-get update && apt-get install libvips-dev -y
 
 WORKDIR /app
 
-CMD ["sh", "-c", "npm i && npm run develop --watch-admin"]
+CMD ["sh", "-c", "npm i && npm run build && npm run develop --watch-admin"]
 
 FROM base AS api
 

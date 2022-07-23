@@ -12,18 +12,23 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "URL": {
-      "type": "string",
-      "required": true,
-      "unique": true
-    },
     "Title": {
       "type": "string",
       "required": true,
       "unique": false
     },
+    "Slug": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
     "Content": {
       "type": "richtext"
+    },
+    "Children": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::article.article"
     }
   }
 }
