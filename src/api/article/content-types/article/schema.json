@@ -17,25 +17,8 @@
       "required": true,
       "unique": false
     },
-    "slug": {
-      "type": "string",
-      "required": true,
-      "unique": false
-    },
     "content": {
       "type": "richtext"
-    },
-    "children": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::article.article",
-      "mappedBy": "parent"
-    },
-    "parent": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::article.article",
-      "inversedBy": "children"
     }
   }
 }
