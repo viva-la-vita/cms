@@ -9,7 +9,7 @@ CMD ["sh", "-c", "npm i && npm run build && npm run develop --watch-admin"]
 
 FROM base AS api
 
-COPY ["package.json", "package-lock.json*", "./"]
+COPY package*.json ./
 
 RUN npm install --production
 
