@@ -6,14 +6,8 @@ module.exports = ({ env }) => {
     apiToken: {
       salt: env('API_TOKEN_SALT'),
     },
+    url: '/',
+    serveAdminPanel: false,
   };
-  if (env('NODE_ENV') === 'production') {
-    return {
-      url: '/',
-      serveAdminPanel: false,
-      ...config
-    };
-  } else {
-    return config;
-  }
+  return config;
 };

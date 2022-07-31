@@ -16,3 +16,13 @@ RUN npm install --production
 COPY . .
 
 CMD ["npm", "run", "start"]
+
+FROM api AS build
+
+RUN NODE_ENV=production npm run build
+
+FROM nginx:1.23-alpine AS cms
+
+COPY default.conf /etc/nginx/conf.d/default.conf
+
+COPY --from=build /app/build /var/www/build
