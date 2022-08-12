@@ -1,0 +1,50 @@
+{
+  "kind": "collectionType",
+  "collectionName": "words",
+  "info": {
+    "singularName": "word",
+    "pluralName": "words",
+    "displayName": "词语",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Chinese": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "English": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "Japanese": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "part_of_speech": {
+      "type": "enumeration",
+      "enum": [
+        "n.",
+        "v.",
+        "a.",
+        "ad."
+      ],
+      "required": true,
+      "default": "n."
+    },
+    "meaning": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "note": {
+      "type": "string"
+    }
+  }
+}
