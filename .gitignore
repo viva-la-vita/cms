@@ -3,3 +3,4 @@ build
 .cache
 .env*
 .strapi-updater.json
+public/uploads
