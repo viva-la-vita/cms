@@ -11,18 +11,16 @@ FROM base AS api
 
 COPY package*.json ./
 
-RUN npm install --production
+RUN npm ci
 
 COPY . .
 
-CMD ["npm", "run", "start"]
-
-FROM api AS build
-
 RUN NODE_ENV=production npm run build
+
+CMD ["npm", "start"]
 
 FROM nginx:1.23-alpine AS cms
 
 COPY default.conf /etc/nginx/conf.d/default.conf
 
-COPY --from=build /app/build /var/www/build
+COPY --from=api /app/dist/build /var/www/dist/build

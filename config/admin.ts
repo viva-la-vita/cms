@@ -1,4 +1,4 @@
-module.exports = ({ env }) => {
+export default ({ env }) => {
   let config = {
     auth: {
       secret: env('ADMIN_JWT_SECRET'),

@@ -1,3 +1,5 @@
-.cache/
-build/
-node_modules/
+.*
+Dockerfile
+docker-*
+node_modules
+README.md
