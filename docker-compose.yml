@@ -6,17 +6,12 @@ services:
     restart: always
     environment:
       NODE_ENV: production
-      APP_KEYS: ${APP_KEYS}
-      API_TOKEN_SALT: ${API_TOKEN_SALT}
-      ADMIN_JWT_SECRET: ${ADMIN_JWT_SECRET}
-      JWT_SECRET: ${JWT_SECRET}
-      DATABASE_PASSWORD: ${DATABASE_PASSWORD}
+    env_file:
+      - .env
     ports:
       - 3000:3000
     depends_on:
       - mysql
-    volumes:
-      - assets:/app/public/uploads
 
   admin:
     image: ghcr.io/viva-la-vita/cms
@@ -42,4 +37,3 @@ services:
 
 volumes:
   mysql:
-  assets:

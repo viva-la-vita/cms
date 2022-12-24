@@ -6,11 +6,8 @@ services:
       target: base
     environment:
       NODE_ENV: development
-      APP_KEYS: ${APP_KEYS}
-      API_TOKEN_SALT: ${API_TOKEN_SALT}
-      ADMIN_JWT_SECRET: ${ADMIN_JWT_SECRET}
-      JWT_SECRET: ${JWT_SECRET}
-      DATABASE_PASSWORD: ${DATABASE_PASSWORD}
+    env_file:
+      - .env
     volumes:
       - .:/app
 
