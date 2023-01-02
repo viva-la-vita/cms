@@ -1,4 +1,4 @@
-export default [
+export default ({ env }) => [
   'strapi::errors',
   {
     name: 'strapi::security',
@@ -11,15 +11,13 @@ export default [
             "'self'",
             'data:',
             'blob:',
-            'dl.airtable.com',
-            'vivalavita.s3.us-east-1.amazonaws.com',
+            env("ASSETS_URL"),
           ],
           'media-src': [
             "'self'",
             'data:',
             'blob:',
-            'dl.airtable.com',
-            'vivalavita.s3.us-east-1.amazonaws.com',
+            env("ASSETS_URL"),
           ],
           upgradeInsecureRequests: null,
         },

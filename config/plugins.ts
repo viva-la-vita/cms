@@ -19,14 +19,16 @@ export default ({ env }) => ({
   },
   upload: {
     config: {
-      provider: 'aws-s3',
+      provider: 'strapi-provider-upload-aws-s3-advanced',
       providerOptions: {
-        accessKeyId: env('AWS_ACCESS_KEY_ID'),
-        secretAccessKey: env('AWS_ACCESS_SECRET'),
-        region: env('AWS_REGION'),
+        accessKeyId: env('ACCESS_KEY_ID'),
+        secretAccessKey: env('SECRET_ACCESS_KEY'),
+        region: 'auto',
+        endpoint: env('ENDPOINT'),
         params: {
-          Bucket: env('AWS_BUCKET'),
+          Bucket: env('BUCKET'),
         },
+        baseUrl: env("ASSETS_URL"),
       },
       actionOptions: {
         upload: {},
