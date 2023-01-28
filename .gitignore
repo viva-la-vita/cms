@@ -3,4 +3,4 @@ dist
 .cache
 .env*
 .strapi-updater.json
-*.d.ts
+schemas.d.ts

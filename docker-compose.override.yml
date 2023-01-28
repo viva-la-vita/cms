@@ -10,12 +10,3 @@ services:
       - .env
     volumes:
       - .:/app
-
-  admin:
-    image: nginx:1.23-alpine
-    build:
-      context: .
-      target: cms
-    volumes:
-      - ./default.conf:/etc/nginx/conf.d/default.conf
-      - .:/var/www/

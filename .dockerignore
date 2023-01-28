@@ -3,3 +3,4 @@ Dockerfile
 docker-*
 node_modules
 README.md
+*.d.ts

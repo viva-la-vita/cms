@@ -13,14 +13,6 @@ services:
     depends_on:
       - mysql
 
-  admin:
-    image: ghcr.io/viva-la-vita/cms
-    restart: always
-    ports:
-      - 3001:80
-    depends_on:
-      - mysql
-
   mysql:
     image: mysql:8.0
     command: mysqld --default-authentication-plugin=mysql_native_password

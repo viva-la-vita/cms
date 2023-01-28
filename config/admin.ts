@@ -6,8 +6,8 @@ export default ({ env }) => {
     apiToken: {
       salt: env('API_TOKEN_SALT'),
     },
-    url: '/',
-    serveAdminPanel: false,
+    url: env('NODE_ENV') === 'production' ? '/' : '/admin',
+    serveAdminPanel: env('NODE_ENV') === 'production' ? false : true,
   };
   return config;
 };

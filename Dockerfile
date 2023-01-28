@@ -18,9 +18,3 @@ COPY . .
 RUN NODE_ENV=production npm run build
 
 CMD ["npm", "start"]
-
-FROM nginx:1.23-alpine AS cms
-
-COPY default.conf /etc/nginx/conf.d/default.conf
-
-COPY --from=api /app/dist/build /var/www/dist/build
