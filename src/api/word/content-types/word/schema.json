@@ -19,12 +19,12 @@
     },
     "English": {
       "type": "string",
-      "required": true,
+      "required": false,
       "unique": true
     },
     "Japanese": {
       "type": "string",
-      "required": true,
+      "required": false,
       "unique": true
     },
     "part_of_speech": {
